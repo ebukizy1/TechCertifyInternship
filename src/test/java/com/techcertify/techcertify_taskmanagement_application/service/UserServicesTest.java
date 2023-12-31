@@ -2,6 +2,7 @@ package com.techcertify.techcertify_taskmanagement_application.service;
 
 import com.techcertify.techcertify_taskmanagement_application.dtos.request.RegisterUserRequest;
 import com.techcertify.techcertify_taskmanagement_application.dtos.response.AuthenticateUserResponse;
+import com.techcertify.techcertify_taskmanagement_application.exception.EmailAlreadyExistException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class UserServicesTest {
     }
 
     @Test
-    public void RegisterUser(){
+    public void RegisterUser() throws EmailAlreadyExistException {
        AuthenticateUserResponse registerUserResponse = userService.register(registerUserRequest);
        assertThat(registerUserResponse).isNotNull();
        assertThat(registerUserResponse.getId()).isNotNull();

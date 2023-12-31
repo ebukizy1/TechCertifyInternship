@@ -3,6 +3,7 @@ package com.techcertify.techcertify_taskmanagement_application.controller.auth;
 import com.techcertify.techcertify_taskmanagement_application.dtos.request.LoginRequest;
 import com.techcertify.techcertify_taskmanagement_application.dtos.request.RegisterUserRequest;
 import com.techcertify.techcertify_taskmanagement_application.dtos.response.AuthenticateUserResponse;
+import com.techcertify.techcertify_taskmanagement_application.exception.EmailAlreadyExistException;
 import com.techcertify.techcertify_taskmanagement_application.exception.UserNotFoundException;
 import com.techcertify.techcertify_taskmanagement_application.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class authenticationController {
 
     private final UserService userService;
     @PostMapping()
-    public ResponseEntity<AuthenticateUserResponse> register(@RequestBody RegisterUserRequest request){
+    public ResponseEntity<AuthenticateUserResponse> register(@RequestBody RegisterUserRequest request) throws EmailAlreadyExistException {
         return ResponseEntity.status(CREATED).body(userService.register(request));
     }
 
