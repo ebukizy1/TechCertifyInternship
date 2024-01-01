@@ -1,0 +1,14 @@
+package com.techcertify.techcertify_taskmanagement_application.service;
+
+import com.techcertify.techcertify_taskmanagement_application.dtos.request.LoginRequest;
+import com.techcertify.techcertify_taskmanagement_application.dtos.request.RegisterUserRequest;
+import com.techcertify.techcertify_taskmanagement_application.dtos.response.AuthenticateUserResponse;
+import com.techcertify.techcertify_taskmanagement_application.exception.EmailAlreadyExistException;
+import com.techcertify.techcertify_taskmanagement_application.exception.UserNotFoundException;
+
+public interface UserService {
+
+    AuthenticateUserResponse register(RegisterUserRequest registerUserRequest) throws EmailAlreadyExistException;
+    AuthenticateUserResponse authenticate(LoginRequest loginRequest) throws UserNotFoundException;
+
+}
