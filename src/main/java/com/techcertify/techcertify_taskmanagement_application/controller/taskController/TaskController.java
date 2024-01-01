@@ -28,7 +28,7 @@ public class TaskController {
     private final TaskService taskService;
 
     @Operation(
-            description = "this is a create task endpoint",
+            description = "this is a create task endpoint it is your choice to pass the due date but implicitly it is set to 7 days" ,
             summary = "you dont have to pass the userId explicit to create task all you need is the token the server is already doing the extraction of the userID",
             responses = {
                     @ApiResponse(
